@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج التسجيل</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4; /* لون الخلفية */
+            background-image: url('https://www.enterpriseappstoday.com/wp-content/uploads/2024/02/car-rental-hqp.jpg'); /* صورة الخلفية */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .registration-form {
+            border: 2px solid black; /* إضافة الحافة السوداء */
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 400px; /* جعل الصندوق أطول */
+            width: 400px; /* عرض الصندوق */
+            padding: 30px; /* حشو النموذج */
+            background-color: whitesmoke; /* لون خلفية النموذج */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+            border-radius: 8px; /* حواف دائرية */
+        }
+        .registration-form h2 {
+            text-align: center;
+            color: #010b15; /* لون العنوان */
+            font-size: 28px; /* حجم خط العنوان */
+            margin-bottom: 25px; /* مسافة تحت العنوان */
+        }
+        .registration-form label {
+            margin-top: 10px;
+            font-weight: bold; /* وزن الخط */
+        }
+        .registration-form input[type="text"],
+        .registration-form input[type="email"],
+        .registration-form input[type="password"] {
+            width: 100%; /* عرض الحقول */
+            padding: 10px; /* حشو الحقول */
+            margin-top: 5px; /* مسافة فوق الحقول */
+            border: 1px solid #ccc; /* لون حدود الحقول */
+           margin-left: -7px;
+            border-radius: 5px; /* حواف دائرية للحقول */
+        }
+        .registration-form button {
+            background-color: #007bff; /* لون خلفية الزر */
+            color: white; /* لون نص الزر */
+            padding: 10px; /* حشو الزر */
+            border: none;
+            border-radius: 5px; /* حواف دائرية للزر */
+            cursor: pointer;
+            margin-top: 15px; /* مسافة فوق الزر */
+            width: 100%; /* عرض الزر */
+           font-size: x-large;
+            transition: background-color 0.3s; /* تأثير عند التحويم */
+        }
+        .registration-form button:hover {
+            background-color: #0056b3; /* لون أفتح عند التحويم */
+        }
+        .registration-form .form-footer {
+            text-align: center; /* محاذاة مركزية للفوتر */
+            margin-top: 20px; /* مسافة فوق الفوتر */
+            color:black; /* لون النص في الفوتر */
+        }
+        .registration-form .form-footer a {
+            color: #007bff; /* لون الروابط */
+            text-decoration: none; /* عدم وجود تسطير */
+        }
+        .registration-form .form-footer a:hover {
+            text-decoration: underline; /* تأثير التسطير عند التمرير */
+        }
+    </style>
+</head>
+<body>
+
+<div class="registration-form">
+    <h2>التسجيل</h2>
+    <form id="userform">
+        <label for="username">اسم المستخدم</label>
+        <input type="text" id="username" name="username" placeholder="أدخل اسم المستخدم" required>
+
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" name="email" placeholder="أدخل البريد الإلكتروني" required>
+
+        <label for="password">كلمة المرور</label>
+        <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+
+        <label for="confirm_password">تأكيد كلمة المرور</label>
+        <input type="password" id="confirm_password" name="confirm_password" placeholder="أعد إدخال كلمة المرور" required>
+
+        <button type="submit">تسجيل</button>
+    </form>
+    <div class="form-footer">
+        لديك حساب؟ <a href="login.html">سجّل الدخول هنا</a>
+    </div>
+</div>
+<script src="../js/registration.js"></script>
+</body>
+</html>

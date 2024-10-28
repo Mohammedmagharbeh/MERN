@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-image: url('https://www.enterpriseappstoday.com/wp-content/uploads/2024/02/car-rental-hqp.jpg');
+        }
+
+        .login-form {
+        
+        
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 400px; /* تقليل ارتفاع الصندوق */
+            width: 400px; /* تقليل عرض الصندوق */
+            padding: 20px; /* تقليل حشو النموذج */
+            background-color: whitesmoke;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 140px;
+            border: 2px solid black; /* إضافة الحافة السوداء */
+            
+        }
+        .login-form h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .login-form label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: -10px;
+        }
+
+        .login-form button {
+            background-color: #2b35e6;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 70%;
+            transition: background-color 0.3s;
+            font-size: x-large;
+            margin-left: 60px;
+        }
+
+        .login-form button:hover {
+            background-color: #0056b3; /* لون أفتح عند التحويم */
+        }
+
+        .login-form p {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-form a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-form a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div class="login-form">
+    <h2>تسجيل الدخول</h2>
+    <form id="loginForm">
+        <label for="username">اسم المستخدم</label>
+        <input type="text" id="username1" name="username" placeholder="أدخل اسم المستخدم" required>
+    
+        <label for="password">كلمة المرور</label>
+        <input type="password" id="password1" name="password" placeholder="أدخل كلمة المرور" required>
+    
+        <button type="submit">دخول</button>
+        <p>هل لا تملك حساب؟ <a href="regiter.html">سجل هنا</a></p>
+    </form>
+</div>
+
+<script src="../js/login.js"></script>
+</body>
+</html>
