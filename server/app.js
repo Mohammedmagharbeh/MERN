@@ -7,6 +7,7 @@ const userRoutes=require('./routes/userRoutes')
 const productRoutes=require('./routes/productRoutes')
 const carRoutse=require('./routes/carRoutes')
 const rentRoutes=require('./routes/rentRoutes')
+const adminRoutes=require('./routes/adminRoutes')
 
 
 dotenv.config()
@@ -19,6 +20,8 @@ app.use('/api',userRoutes)
 app.use('/api',productRoutes)
 app.use('/api',carRoutse)
 app.use('/api',rentRoutes)
+app.use('/api',adminRoutes)
+
 
 
 module.exports=app; 

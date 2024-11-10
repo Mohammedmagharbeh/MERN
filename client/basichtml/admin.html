@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الدخول</title>
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #222;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+        background-image: url('https://files.oaiusercontent.com/file-4zgzjFDzeItNrlwuG4vTVRGo?se=2024-11-08T16%3A05%3A59Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D5144013a-61f7-428d-9f8e-6a0825020d1f.webp&sig=K9%2BRYdXnGgL4T5kQKD9nNxCYpvc5RMlH3SXvfEsI3gM%3D');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        color: #fff;
+    }
+
+    #adminform {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        border: 2px solid #FFD700; /* إضافة إطار */
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 1rem;
+        color: #555;
+        display: block;
+        text-align: right;
+        margin-bottom: 0.5rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #FFD700;
+        color: #fff;
+        padding: 0.75rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+        background-color: #C8A400;
+        transform: scale(1.05);
+    }
+
+    /* زر الانتقال إلى صفحة التسجيل */
+    .register-button {
+        margin-top: 1rem;
+        background-color: #333;
+        color: #fff;
+        padding: 0.75rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .register-button:hover {
+        background-color: #555;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            background-position: top;
+        }
+
+        #adminform {
+            padding: 1.5rem;
+        }
+
+        input[type="text"], input[type="password"] {
+            padding: 0.8rem;
+        }
+
+        button, .register-button {
+            padding: 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <form id="adminform">
+        <label for="username" style="color: #333;">اسم المستخدم:</label>
+        <input type="text" id="adusername" placeholder="أدخل اسم المستخدم" required>
+        
+        <label for="password" style="color: #333;">كلمة المرور:</label>
+        <input type="password" id="adpassword" placeholder="أدخل كلمة المرور" required>
+        
+        <button type="submit" style="color: #333;">تسجيل الدخول</button>
+        
+        <!-- زر التحويل لصفحة التسجيل -->
+        <button type="button" class="register-button" onclick="window.location.href='adminreg.html'">
+            إنشاء حساب جديد
+        </button>
+    </form>
+
+    <script src="../js/adminlogin.js"></script>
+</body>
+</html>

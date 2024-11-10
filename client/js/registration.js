@@ -1,16 +1,17 @@
-// getuser
-
-
-
 
 const regform=document.getElementById("userform")
 regform.addEventListener('submit',function(event){
     event.preventDefault()
-
 const username=document.getElementById('username').value
 const email=document.getElementById('email').value
 const password=document.getElementById('password').value
 const password2=document.getElementById('confirm_password').value
+if (password !== password2) {
+    alert('كلمتا المرور غير متطابقتين، الرجاء المحاولة مرة أخرى.');
+    return; // وقف التنفيذ إذا كانت الكلمتان مختلفتين
+}
+alert('تم التسجيل بنجاح');
+
 postdata(username,email,password,password2)
 
 

@@ -5,7 +5,7 @@ async function getdata() {
         const loginForm = document.getElementById('loginForm');
         loginForm.addEventListener('submit', function(event) {
             event.preventDefault();
-
+            
             const username = document.getElementById('username1').value;
             const password = document.getElementById('password1').value;
 

@@ -4,7 +4,7 @@ async function getdata() {
     await fetch("http://127.0.0.1:5000/api/Rent")
         .then(response => response.json())
         .then(data => {
-            
+            console.log(data)
             data.forEach(rents => {
             const cardContainer = document.getElementById("cardContainer"); // الحصول على حاوية البطاقات
                 const rentCard = document.createElement("div"); // إنشاء عنصر div جديد
@@ -61,7 +61,7 @@ getdata();
 
 const rentForm = document.getElementById("rentform");
 rentForm.addEventListener('submit', function(event) {
-    // event.preventDefault();
+    event.preventDefault();
     const name = document.getElementById('name').value;
     const year = document.getElementById('year').value;
     const price = document.getElementById('price').value;
@@ -83,7 +83,7 @@ rentForm.addEventListener('submit', function(event) {
 });
 
 async function postREN(name, year,price, image) {
-    const data = { name: name, year: year, image: image,price:price }; // استخدام الصورة كـ Base64
+    const data = { name:name, year:year, image:image,price:price }; // استخدام الصورة كـ Base64
    
     await fetch('http://127.0.0.1:5000/api/postrent', {
         method: 'POST',
@@ -115,17 +115,17 @@ async function Deleteren(id) {
 // update
 const rentupdate=document.getElementById('rentupdate')
 rentupdate.addEventListener('submit',function(event){
-    // event.preventDefault()
+    event.preventDefault()
         
     var newname=document.getElementById('name2').value
     var newyear=document.getElementById('year2').value
     var newprice=document.getElementById('price2').value
-    const newimage = document.getElementById('image2').files[0]; // الحصول على الملف المحدد
+    // const newimage = document.getElementById('image2').files[0]; // الحصول على الملف المحدد
     var id=document.getElementById('newId').value
     
     const rentupdated = { name: newname, year: newyear, price: newprice };
 
-    fetch(`http://127.0.0.1:5000/api/updaterent/${id}`,{
+    fetch(`http://127.0.0.1:5000/api/updatenewrent/${id}`,{
         
         method:"PUT",
 headers:{
@@ -133,7 +133,7 @@ headers:{
 },
 
 body:JSON.stringify(rentupdated) 
+
     }).then(response=>response.json()
-    
 )
 })
