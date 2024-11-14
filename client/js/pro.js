@@ -25,7 +25,8 @@ async function getdata() {
                     deletebuttonRent.onclick=function(){
                         Deleteren(rents._id,)
                         alert('هل تريد حذف المركبة')
-                        
+                        rentCard.remove();
+
                     }
                     // إضافة زر الحذف داخل البطاقة
                     rentCard.appendChild(deletebuttonRent);
@@ -42,7 +43,7 @@ cardContainer.appendChild(rentCard);
 updaterent.setAttribute('data-toggle','modal')
 updaterent.setAttribute('data-target','#exampleModalLong')
 updaterent.onclick=function(){
-
+    
     var name=document.getElementById('name2')
     var year=document.getElementById('year2')
     var price=document.getElementById('price2')
