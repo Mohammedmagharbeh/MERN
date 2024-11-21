@@ -25,8 +25,7 @@ async function getdata() {
        
           rentbutton.onclick=function(){
             $('#exampleModal').modal('show');
-            
-
+          
             var firstdate=document.getElementById('startDate')
             var seconddate=document.getElementById('endDate')
             var phoneNumber=document.getElementById('phoneNumber')

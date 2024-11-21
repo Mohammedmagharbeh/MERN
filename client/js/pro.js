@@ -26,7 +26,6 @@ async function getdata() {
                         Deleteren(rents._id,)
                         alert('هل تريد حذف المركبة')
                         rentCard.remove();
-
                     }
                     // إضافة زر الحذف داخل البطاقة
                     rentCard.appendChild(deletebuttonRent);
@@ -62,7 +61,7 @@ getdata();
 
 const rentForm = document.getElementById("rentform");
 rentForm.addEventListener('submit', function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     const name = document.getElementById('name').value;
     const year = document.getElementById('year').value;
     const price = document.getElementById('price').value;
@@ -96,8 +95,6 @@ async function postREN(name, year,price, image) {
     })
     
     .then(response => response.json())
-    
-    
 }
 // delete
 
@@ -116,7 +113,7 @@ async function Deleteren(id) {
 // update
 const rentupdate=document.getElementById('rentupdate')
 rentupdate.addEventListener('submit',function(event){
-    event.preventDefault()
+    // event.preventDefault()
         
     var newname=document.getElementById('name2').value
     var newyear=document.getElementById('year2').value
