@@ -52,27 +52,14 @@ res.status(200).json(updatecars)
     const deletecars=await car.findByIdAndDelete({_id:id})
     res.status(200).json(deletecars)
     }
-    catch{
+    catch(error){
+        // console.log(error.message)
         res.status(500).json({error:error.message})
     }
     }
 
 
-// exports.deletecar = async (req, res) => {
-//     try {
-//         const id = req.params.id; 
-//         const field = req.params.field;  
-//         const deletecars = await car.updateOne(
-//             { _id: id },  
-//             { $unset: { [field]: "" } } 
-//         );
-//  
-//         res.status(200).json(deletecars)
-//         }
-//     catch (error) {
-//         res.status(500).json({ error: error.message });
-//     }
-// };
+
 
 
 exports.carLogin = async (req, res) => {
