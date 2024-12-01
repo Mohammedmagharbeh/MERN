@@ -74,7 +74,7 @@
 
 .car-card p {
   margin: 8px 0 0;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #555;
 }
 
@@ -97,7 +97,7 @@
   object-fit: cover;
 }
 body {
-  background-image: url('https://files.oaiusercontent.com/file-5wVAfaEUoq1sS9b2zm6Cef?se=2024-11-24T13%3A52%3A26Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3Dfb653b04-7b0e-459f-b16f-ea9381adc7dc.webp&sig=4eukM67lCD6%2BSobYWuZ1pft8QpZLTGMpste2oiC8cqM%3D');
+  background-image: url('file:///C:/Users/User/Downloads/DALL%C2%B7E%202024-11-24%2019.10.21%20-%20A%20luxurious%20car%20rental%20office%20interior%20featuring%20a%20modern%20waiting%20area%20with%20sleek%20furniture,%20warm%20lighting,%20and%20large%20glass%20windows%20overlooking%20a%20park.webp');
   background-size: cover; /* يضمن ملء الخلفية بالكامل */
   background-position: center; /* تحديد موقع الصورة في الخلفية */
 }
@@ -171,3 +171,151 @@ body {
 .delete-button:hover {
   background-color: #dc3545; /* لون أحمر عند التمرير */
 }
+.edit{
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+.edit:hover{
+  background-color: green;
+}
+.update.button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffcc00;  /* الخلفية باللون الأصفر */
+  color: #000;  /* النص باللون الأسود */
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.update.button:hover {
+  background-color: #e6b800; /* تغيير اللون عند المرور بالماوس */
+
+}
+.cancel{
+  width: 100%;
+  padding: 12px;
+  background-color: #ffcc00;  /* الخلفية باللون الأصفر */
+  color: #000;  /* النص باللون الأسود */
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.modal-content {
+  background-color:rgba(14, 13, 13, 0);;
+  border: 2px solid #ffcc00; /* حدود باللون الأصفر */
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px; /* عرض المودال */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* ظل خفيف */
+  color: #fff; /* النص باللون الأبيض */
+}
+
+.modal-content h2 {
+  color: #ffcc00; /* عنوان باللون الأصفر */
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content textarea,
+.modal-content select {
+  width: 75%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ffcc00; /* حدود صفراء */
+  border-radius: 5px;
+  background-color: #222; /* خلفية سوداء */
+  color: #fff; /* نص أبيض */
+  font-size: 1em;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="number"]:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+  border-color: #e6b800; /* حدود صفراء أغمق عند التفاعل */
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 204, 0, 0.5); /* تأثير مضيء */
+}
+
+.modal-content button {
+  background-color: #ffcc00; /* زر بخلفية صفراء */
+  color: #000; /* نص أسود */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  
+}
+
+.modal-content button:hover {
+  background-color: #e6b800; /* لون أصفر أغمق عند التمرير */
+}
+
+.modal-content .cancel {
+  background-color: #222; /* زر إلغاء بخلفية سوداء */
+  color: #ffcc00; /* نص أصفر */
+  border: 2px solid #ffcc00;
+}
+
+.modal-content .cancel:hover {
+  background-color: #333; /* لون داكن أكثر عند التمرير */
+  color: #fff; /* نص أبيض */
+}
+.modal {
+  opacity: 0; /* اجعل المودال غير مرئي في البداية */
+  transform: scale(0.8); /* تصغير المودال قليلاً */
+  animation: modal-fade-in 0.3s forwards; /* تطبيق تأثير الدخول */
+}
+
+@keyframes modal-fade-in {
+  to {
+    opacity: 1; /* جعله مرئيًا */
+    transform: scale(1); /* حجمه الطبيعي */
+  }
+}
+.modal {
+  position: fixed; /* يجعل المودال مثبتًا بالنسبة للشاشة */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* خلفية شفافة */
+  display: flex;
+  align-items: center; /* توسيط رأسي */
+  justify-content: center; /* توسيط أفقي */
+  z-index: 9999; /* فوق جميع العناصر */
+}
+.edit-button{
+
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }  
+  .edit-button:hover {
+    background-color: #35dc49; /* لون أحمر عند التمرير */
+  }
