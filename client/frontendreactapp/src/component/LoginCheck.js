@@ -1,5 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // لاستدعاء التنقل بين الصفحات
+import '../App.css'
 
 const Login=()=>{
 
@@ -7,7 +9,7 @@ const [username,setusername]=useState('')
 const [password,setpassword]=useState('')
 const [Token,setToken]=useState('')
 const [userData,setuserData]=useState(null)
-
+const navigate=useNavigate()
 
 const Loginhandler=async(e)=>{
     e.preventDefault()
@@ -15,21 +17,28 @@ const Loginhandler=async(e)=>{
         const res=await axios.post('http://127.0.0.1:5000/api/login',{username,password})
         setToken(res.data.token)
         alert('log done')
+        navigate("/frontreact");  // التنقل إلى صفحة Home بعد النجاح
+
+        sessionStorage.setItem('jwt',res.data.token)
+        
     } catch (error) {
         alert('invaled data')
     }
 }
-
 return(
     <>
     <h1>
         log in page
     </h1>
-    <form onSubmit={Loginhandler}>
-    <input type="text" placeholder="username" value={username} onChange={(e)=>{setusername(e.target.value)}} required />
-    <input type="text" placeholder="password"  value={password} onChange={(e)=>{setpassword(e.target.value)}} required />
-    <button type="submit"> login</button>
-    </form>
+    <>
+  <h1 className="login-header">Welcome Back</h1>
+  <form onSubmit={Loginhandler} className="loginn-form">
+    <input type="text"placeholder="Username" value={username} onChange={(e) => setusername(e.target.value)}required className="input-field"/>
+    <input type="password" placeholder="Password"  value={password} onChange={(e) => setpassword(e.target.value)} required className="input-field"/>
+    <button type="submit" className="log-button">Login</button>
+  </form>
+</>
+
     </>
 )
 

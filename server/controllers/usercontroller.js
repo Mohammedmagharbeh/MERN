@@ -61,7 +61,7 @@ exports.verify=async(req,res,next)=>{
         req.user=Varfied.userId;
         next();
     } catch (error) {
-        res.status(500).json({ error: error.message });
+        res.status(401).json({ error: error.message });
     }
 }
 exports.home=async(req,res)=>{
