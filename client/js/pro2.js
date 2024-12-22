@@ -2,7 +2,7 @@ async function getdata() {
     await fetch("http://127.0.0.1:5000/api/Rent")
         .then(response => response.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             data.forEach(rents => {
                 const card=document.createElement('div')
                 card.innerHTML= `

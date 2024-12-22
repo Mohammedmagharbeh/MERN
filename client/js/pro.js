@@ -4,7 +4,6 @@ async function getdata() {
     await fetch("http://127.0.0.1:5000/api/Rent")
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             data.forEach(rents => {
             const cardContainer = document.getElementById("cardContainer"); // الحصول على حاوية البطاقات
                 const rentCard = document.createElement("div"); // إنشاء عنصر div جديد

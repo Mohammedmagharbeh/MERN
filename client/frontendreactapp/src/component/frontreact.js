@@ -10,31 +10,33 @@ const [modalstate,setmodalstate]=useState(false)
 const [selececar,setselectcar]=useState(null)
 useEffect(()=>{
 
-  const token=sessionStorage.getItem('jwt')
-const invaliedToken=async()=>{
-  try{
-    const res=await axios.get('http://127.0.0.1:5000/api/jwt',{
-      headers:{
-        'Auth':'Bearer '+token
-      }
-    })
-    console.log(res.data)
-  }
-  catch(err){
-    console.log(err.response)
-    if(err.response.status===401){
-      navigate('/')
-    }
-  }
-}
+//   const token=sessionStorage.getItem('jwt')
+//   // console.log(token)
+
+// const invaliedToken=async()=>{
+//   try{
+//     const res=await axios.get('http://127.0.0.1:5000/api/jwt',{
+//       headers:{
+//         'Auth':'Baerer '+token
+//       }
+//     })
+//     // console.log(res.data)
+//   }
+//   catch(err){
+//     // console.log(err.response)
+//     if(err.response.status===401){
+//       navigate('/')
+//     }
+//   }
+// }
   const getcar=async()=>{
     const res=await fetchCars()
     setrentcars(res.data)
   }
-invaliedToken()
+// invaliedToken()
 
   getcar()
-},)
+})
 
 // delete
 const deletecars = async (id) => {

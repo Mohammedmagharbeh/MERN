@@ -97,7 +97,7 @@
   object-fit: cover;
 }
 body {
-  background-image: url('file:///C:/Users/User/Downloads/DALL%C2%B7E%202024-11-24%2019.10.21%20-%20A%20luxurious%20car%20rental%20office%20interior%20featuring%20a%20modern%20waiting%20area%20with%20sleek%20furniture,%20warm%20lighting,%20and%20large%20glass%20windows%20overlooking%20a%20park.webp');
+  /* background-image: url('file:///C:/Users/User/Downloads/DALL%C2%B7E%202024-11-24%2019.10.21%20-%20A%20luxurious%20car%20rental%20office%20interior%20featuring%20a%20modern%20waiting%20area%20with%20sleek%20furniture,%20warm%20lighting,%20and%20large%20glass%20windows%20overlooking%20a%20park.webp'); */
   background-size: cover; /* يضمن ملء الخلفية بالكامل */
   background-position: center; /* تحديد موقع الصورة في الخلفية */
 }

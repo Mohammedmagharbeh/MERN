@@ -11,20 +11,44 @@ const [Token,setToken]=useState('')
 const [userData,setuserData]=useState(null)
 const navigate=useNavigate()
 
+
 const Loginhandler=async(e)=>{
     e.preventDefault()
-    try {
-        const res=await axios.post('http://127.0.0.1:5000/api/login',{username,password})
-        setToken(res.data.token)
-        alert('log done')
-        navigate("/frontreact");  // التنقل إلى صفحة Home بعد النجاح
-
+    try{
+        const res=await axios.post("http://127.0.0.1:5000/api/login",{username,password})
+        setToken(res.data.toke)
         sessionStorage.setItem('jwt',res.data.token)
-        
-    } catch (error) {
-        alert('invaled data')
+        alert('login sucssfully')
+        navigate('/dash')
     }
+   catch(error){
+    alert('invalid data')
+   }
 }
+
+
+
+
+
+
+
+
+
+
+// const Loginhandler=async(e)=>{
+//     e.preventDefault()
+//     try {
+//         const res=await axios.post('http://127.0.0.1:5000/api/login',{username,password})
+//         setToken(res.data.token)
+//         sessionStorage.setItem('jwt',res.data.token)
+//         alert('login done')
+//         navigate('/dash')
+//     } catch (error) {
+//         alert('invalid data')
+//     }
+// }
+
+
 return(
     <>
     <h1>
