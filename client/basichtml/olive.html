@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Olive Image</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #eafaf1, #d7e8c6); /* تدرج ألوان طبيعي */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      width: 350px;
+    }
+
+    .form-container h1 {
+      color: #556b2f;
+      margin-bottom: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 2px solid #8fbc8f;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .form-container p {
+      color: #6b8e23;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .form-container input[type="file"] {
+      display: block;
+      margin: 15px auto;
+      padding: 5px;
+      border: 2px dashed #8fbc8f;
+      border-radius: 5px;
+      width: 80%;
+      cursor: pointer;
+      background-color: #f9f9f9;
+    }
+
+    .form-container button {
+      background-color: #556b2f;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .form-container button:hover {
+      background-color: #6b8e23;
+      transform: translateY(-2px);
+    }
+
+    .form-container button:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>رفع صورة الزيتون</h1>
+    <p>يرجى اختيار صورة لزيتونك المفضل ورفعها للقاعدة.</p>
+    <form id="oliveform" action="/upload" method="POST" enctype="multipart/form-data">
+      <input id="olivephoto" type="file" name="oliveImage" accept="image/*" required />
+      <button type="submit">رفع الصورة</button>
+    </form>
+  </div>
+</body>
+<script src="../js/olive.js"></script>
+</html>

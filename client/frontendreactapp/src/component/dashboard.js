@@ -37,10 +37,10 @@ const demoTheme = createTheme({
 
 function useDemoRouter(initialPath) {
   const [pathname, setPathname] = React.useState(initialPath);
-  if(pathname ==='/LogOut'){
+  if(pathname =='/LogOut'){
     console.log('logging out')
-    window.location.href='./'
-    
+    sessionStorage.removeItem('jwt')
+    window.location.href = "/"
   }
 
   const router = React.useMemo(() => {
@@ -126,10 +126,10 @@ const [currentComponant,setCurrentComponant]= useState(<Newdash/>)
       }} />
     }
     ])
-    const logouthandel=()=>{
-      sessionStorage.removeItem('jwt')
+    const handelLogOut = ()=>{
+      sessionStorage.removeItem('jwt');
       navigate('/')
-      }
+    }
   const router = useDemoRouter('/dashboard');
 
 // this link for Home
@@ -197,11 +197,10 @@ setdashNavigate([
   {
     segment: 'LogOut',
     title: 'LogOut',
-    onClick:logouthandel,
-    icon: <div onClick={()=>{console.log('logOut')}}>
-      <ExitToAppIcon />
-    </div>
-  },
+    onClick:handelLogOut,
+    icon: 
+      <ExitToAppIcon /> 
+     },
   
 
 ])

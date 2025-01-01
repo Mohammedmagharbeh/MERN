@@ -2,7 +2,7 @@ const user=require('../models/users')
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 const { unsubscribe, use } = require('../routes/userRoutes')
-const { get } = require('mongoose')
+// const { get } = require('mongoose')
 
 
 exports.getUsers=async(req,res)=> {
@@ -11,6 +11,18 @@ exports.getUsers=async(req,res)=> {
         res.status(200).json(users)
     } catch (error) {
         res.status(400).json({message:error.message})
+    }
+}
+
+exports.deleteuser=async(req,res)=>{
+    try {
+        const id=req.params.id
+        const userdeleted=await user.findByIdAndDelete({_id:id})
+    res.status(200).json(userdeleted)
+
+    } catch (error) {
+    res.status(500).json({ message: error.message });
+        
     }
 }
 
