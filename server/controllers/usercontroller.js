@@ -1,8 +1,6 @@
 const user=require('../models/users')
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
-const { unsubscribe, use } = require('../routes/userRoutes')
-// const { get } = require('mongoose')
 
 
 exports.getUsers=async(req,res)=> {
@@ -21,8 +19,19 @@ exports.deleteuser=async(req,res)=>{
     res.status(200).json(userdeleted)
 
     } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ message:error.message });
         
+    }
+}
+
+exports.updateuser=async(req,res)=>{
+    try {
+        const id=req.params.id
+        const body=req.body
+        const userupdated=await user.findByIdAndUpdate(id,body,{new:true})
+        res.status(200).json(userupdated)
+    } catch (error) {
+        res.status(400).json({message:error.message})
     }
 }
 
@@ -50,10 +59,10 @@ try {
     }
     const isMatch=await bcrypt.compare(password,userLog.password)
     if(!isMatch){
-        return res.status(400).json({message:'rong information'})
+        return res.status(400).json({message:'Wrong information'})
     }
     const token=jwt.sign({userId:userLog._id},'goback',{
-        expiresIn:'1h'
+        expiresIn:'1h'  
     })
     res.status(200).json({message:'token found',token})
 } catch (error) {
@@ -83,7 +92,6 @@ try {
     res.status(200).json({user:checkuser})
 } catch (error) {
     res.status(500).json({error:error.message})
-    
 }
 }
 

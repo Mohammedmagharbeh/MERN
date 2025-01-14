@@ -73,7 +73,14 @@ import DeleteIcon from '@mui/icons-material/DeleteOutlined';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
 import { useState,useEffect } from 'react';
-import { deleteUser, fetchuser, postusers } from '../back/api';
+import { deleteUser, fetchuser, postusers,postregitrer,updateuser } from '../back/api';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 import {
   GridRowModes,
   DataGrid,
@@ -140,7 +147,7 @@ function EditToolbar(props) {
     const id = generateRandomId(); // استخدام الدالة المعرفة generateRandomId بدلاً من randomId
     setRows((oldRows) => [
       ...oldRows,
-      { id, username: '', email: '', role: '', joinDate: new Date(), isNew: true }, // إضافة تاريخ افتراضي
+      { id, username: '', email: '', role: '', isNew: true },
     ]);
     setRowModesModel((oldModel) => ({
       ...oldModel,
@@ -159,12 +166,14 @@ function EditToolbar(props) {
 
 export default function FullFeaturedCrudGrid() {
   const [user,setUser]=useState([])
+  const [open, setOpen] = React.useState(false);
+  const[confirmDelete,setconfirmDelete]=useState(false)
+  const [Deleteid,seDeleteid]=useState(null)
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-      // var users = [
-      //     { id: 1, username: 'JohnDoe', year: 'Watch, Belt', price: 120 },
-      //     { id: 2, username: 'JaneSmith', year: 'Bag, Shoes', price: 200 },
-      //     { id: 3, username: 'AliceJones', year: 'Ring, Necklace', price: 300 },
-      //   ];
+
+    
   useEffect(()=>{
     fetchuser().then(res=>{
           const formcarupdated=res.data.map(user=>({
@@ -174,9 +183,7 @@ export default function FullFeaturedCrudGrid() {
               role:user.roul
   
           }))
-          
         
-  // users=formcarupdated
      setRows(formcarupdated); // قم بتحديث rows هنا بعد الجلب
 
       })
@@ -184,13 +191,19 @@ export default function FullFeaturedCrudGrid() {
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState({});
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-// const handleDelete=(id)=>{
-//             deleteUser(id).then(()=>{
-//               setUser((prevUsers) => prevUsers.filter((user) => user.id !== id));
-//             })
-//           }
+  const handleClose = async(confirmDelete) => {
+    if(confirmDelete&&Deleteid){
+    setRows(rows.filter((row) => row.id !== Deleteid));
+    await deleteUser(Deleteid)
 
+      
+    }
+    setOpen(false);
+  };
 
 
   const handleRowEditStop = (params, event) => {
@@ -199,17 +212,29 @@ export default function FullFeaturedCrudGrid() {
     }
   };
 
-  const handleEditClick = (id) => () => {
+  const handleEditClick = (id) => async () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
+
   };
 
-  const handleSaveClick = (id) => () => {
+  const handleSaveClick = (id) => async () => {
     setRowModesModel({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
+    const editedRow = rows.find((row) => row.id === id);
+
+    // setRows(rows.filter((row) => row.id !== id));
   };
 
-  const handleDeleteClick = (id) => () => {
-    setRows(rows.filter((row) => row.id !== id));
-  };
+  
+const handleDeleteClick = (id) => async () => {
+  seDeleteid(id)
+  handleClickOpen()
+  // const confirmDelete = window.confirm("هل أنت متأكد من حذف هذا المستخدم؟");
+
+  // if (confirmDelete) {
+  //   setRows(rows.filter((row) => row.id !== id));
+  //   await deleteUser(id);
+  // }
+};
 
   const handleCancelClick = (id) => () => {
     setRowModesModel({
@@ -223,7 +248,33 @@ export default function FullFeaturedCrudGrid() {
     }
   };
 
-  const processRowUpdate = (newRow) => {
+  const processRowUpdate=async (newRow) => {
+    // post user here
+    if(newRow.isNew){
+      const user={
+        id:newRow._id,
+        username:newRow.username,
+        email:newRow.email,
+        password:"123",
+        role:newRow.roul,
+      }
+      // console.log(user)
+      await postregitrer(user)
+      .then((res)=>{
+        console.log(res)
+      })
+    }
+    else{
+ // update is here
+ const userUpdate = {
+  username: newRow.username,
+  email: newRow.email,
+  role: newRow.roul,
+};
+const response=await updateuser(newRow.id,userUpdate)
+console.log(response)
+    }
+   
     const updatedRow = { ...newRow, isNew: false };
     setRows(rows.map((row) => (row.id === newRow.id ? updatedRow : row)));
     return updatedRow;
@@ -328,6 +379,33 @@ export default function FullFeaturedCrudGrid() {
           toolbar: { setRows, setRowModesModel },
         }}
       />
+       <React.Fragment>
+     
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Let Google help apps determine location. This means sending anonymous
+            location data to Google, even when no apps are running.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={()=>handleClose(false)}>
+            Disagree
+          </Button>
+          <Button onClick={()=>{handleClose(true)}} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </React.Fragment>
     </Box>
   );
 }

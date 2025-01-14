@@ -229,10 +229,7 @@ setdashNavigate([
       navigation={dashNavigate}
       router={router}
       theme={demoTheme}
-      
       window={demoWindow}
-      
-      
     >
 
       <DashboardLayout>

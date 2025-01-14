@@ -49,7 +49,7 @@ const deletecars = async (id) => {
     alert("Car deletion has been canceled."); // تنبيه عند الإلغاء
   }
 };
-
+    
 
 
 // post 

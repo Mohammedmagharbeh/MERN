@@ -9,8 +9,10 @@ export const updateCar=(id,formData)=>API.put(`/updatenewrent/${id}`,formData);
 export const postregitrer = (user) => API.post('/users/postnewuser', user);
      
 
+
 // to get user(test)
 export const fetchuser=()=>API.get('/users')
-export const postusers=(user)=>API.post('/users/postnewuser')
-export const deleteUser=(id)=>API.delete(`/users/deleteuser/${id}`)
+// export const postusers=(user)=>API.post('/users/postnewuser',user)
+export const deleteUser=(id)=>API.delete(`/deleteuser/${id}`)
+export const updateuser=(id,userUpdate)=>API.put(`/updateuser/${id}`,userUpdate)
 

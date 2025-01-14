@@ -8,7 +8,6 @@ const productRoutes=require('./routes/productRoutes')
 const carRoutse=require('./routes/carRoutes')
 const rentRoutes=require('./routes/rentRoutes')
 const adminRoutes=require('./routes/adminRoutes')
-const oliveRoutes=require('./routes/oliveRoutes')
 
 
 
@@ -23,7 +22,6 @@ app.use('/api',productRoutes)
 app.use('/api',carRoutse)
 app.use('/api',rentRoutes)
 app.use('/api',adminRoutes)
-app.use('/api',oliveRoutes)
 
 
 

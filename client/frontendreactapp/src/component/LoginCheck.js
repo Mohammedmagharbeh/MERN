@@ -16,7 +16,7 @@ const Loginhandler=async(e)=>{
     e.preventDefault()
     try{
         const res=await axios.post("http://127.0.0.1:5000/api/login",{username,password})
-        setToken(res.data.toke)
+        setToken(res.data.token)
         sessionStorage.setItem('jwt',res.data.token)
         alert('login sucssfully')
         navigate('/dash')
